@@ -6,7 +6,11 @@ class Plant {
 	}
 }
 
-const changeState = (state, prop, value) => ({
-	...state,
-	[prop]: (state[prop] || 0) + value
-})
+const changeState = (prop) => {
+	return (value) => {
+		return (state) => ({
+			...state,
+			[prop]: (state[prop] || 0) + value
+		})
+	}
+}
